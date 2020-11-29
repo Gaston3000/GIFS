@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+        <title>PROYECTO ACAMICA GIFOS</title>
+        <link rel="stylesheet" href="../CSS/home.css" />    
+        <script src="https://kit.fontawesome.com/3d56d30b27.js" crossorigin="anonymous"></script>  
+    </head>
+
+    <body>
+
+        <div class="barravioleta"></div>
+        <!--  H E A D E R   -->
+        
+        <header class="wrapper" >
+            
+            <a class="logo" href="home.html"><img class="imgg1" alt="logo de gifos" src="../img/LogoDeGIFOS.png"></a>
+            <a class="logo" href="home.html"><img class="imgg2" alt="logo de gifos" src="../img/logo-desktop-modo-noc.svg"></a>  
+            <!-- LOGOS DEL MOBILE --> 
+            <a class="logo" href="home.html"><img class="imgg3" alt="logo de gifos" src="../img/logo-mobile.svg"></a> 
+            <a class="logo" href="home.html"><img class="imgg4" alt="logo de gifos" src="../img/logo-mobile-nocturno(1).png"></a> 
+            
+            <input type="checkbox" name="main-nav" id="main-nav" class="burger-check">
+            <label for="main-nav" class="burger"><span></span></label>
+
+            <nav class="menu">
+                <ul class="listmenu">                                        
+                    <li><a class="switch" id="primero" style="visibility:visible; display:block;" href="javascript:toggleDarkMode()" onclick="visualiza_segundo()">MODO NOCTURNO</a></li>
+                    <li><a class="switch" id="segundo" style="visibility:hidden; display:none;" href="javascript:toggleDarkMode()" onclick="visualiza_primero()">MODO DIURNO</a></li><hr>
+                    
+                    <li><a href="favoritos.html">FAVORITOS</a></li><hr>
+                    
+                    <li><a href="misgifos.html">MIS GIFOS</a></li><hr>
+                    
+                    <li class="invisible"><a class="posiciondelmas" href="creargifo.html"><button class="btn1">+</button></a></li>                                         
+                </ul>                        
+            </nav>
+                     
+        </header>
+
+        <!-- M A I N -->
+
+        <main>
+
+            <article class="articlefav">
+
+                <div>
+                    <img src="../img/icon-favoritos.svg" alt="icono de favoritos" class="corazonverde">
+                    <h1 class="h1fav">Favoritos</h1>                    
+                </div>
+                
+                <!-- lo que aparce si no hay favoritos -->
+
+                <div id="desapareceDeFav" class="art2fav">
+                    <img src="../img/CorazonVerdeConCara.svg" alt="" class="img2fav">
+                    <h2 class="h2fav">"¡Guarda tu primer GIFO en Favoritos para que se muestre aquí!"</h2>
+                </div>
+
+                <!--lo que aparece si hay favoritos -->
+
+                <div class="aparecenlosfav" id="apareceFav" style="display: none;">
+                                                                                                        
+                </div>
+
+            </article>
+
+            <!-- section -->
+            
+            <!--  S E C C I O N      G I F O S   -->
+
+            <section class="section">
+
+                <div>
+                    
+                    <h3 class="h3h">Trending GIFOS</h3>
+                    <P class="p3h">Mira los últimos GIFO de nuestra comunidad.</P>
+                    
+                    <div class="gifosybotones">
+                        <button class="btn4" onclick="pasarGifs(-1)"><i class="fas fa-angle-left"></i></button>
+                        
+                        
+
+                        <div id="divFotos">
+
+                        </div>
+
+
+                        
+                        <button class="btn3" onclick="pasarGifs(1)"><i class="fas fa-angle-right"></i></button>
+
+                    </div>
+                    
+                </div>
+
+            </section>      
+
+        </main>
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            <div class="divfooter">
+
+                <h4 class="fh4">© 2020 GIFOS All Rights Reserved.</h4>
+
+                
+                <div class="footert">
+                    <p class="footerp">Comparti en:</p>
+                    <div class="footeri">
+                        <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                    
+            </div>
+            
+        </footer>
+        <div class="barravioleta"></div>
+
+        <!-- scripts  -->
+        <script src='../JS/home.js'></script> 
+        <script src='../JS/fav.js' ></script>
+
+    </body>
+
+</html>

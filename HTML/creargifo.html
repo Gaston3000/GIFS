@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+        <title>PROYECTO ACAMICA GIFOS</title>
+        <link rel="stylesheet" href="../CSS/home.css" />      
+        <script src="https://kit.fontawesome.com/3d56d30b27.js" crossorigin="anonymous"></script>  
+        <script src="https://www.webrtc-experiment.com/RecordRTC.js"></script>
+    </head>
+
+    <body>
+
+        <div class="barravioleta"></div>
+        <!--  H E A D E R   -->
+        
+        <header class="wrapper" >
+            
+            <a class="logo" href="home.html"><img class="imgg1" alt="logo de gifos" src="../img/LogoDeGIFOS.png"></a>
+            <a class="logo" href="home.html"><img class="imgg2" alt="logo de gifos" src="../img/logo-desktop-modo-noc.svg"></a>  
+            <!-- LOGOS DEL MOBILE --> 
+            <a class="logo" href="home.html"><img class="imgg3" alt="logo de gifos" src="../img/logo-mobile.svg"></a> 
+            <a class="logo" href="home.html"><img class="imgg4" alt="logo de gifos" src="../img/logo-mobile-nocturno(1).png"></a> 
+            
+            <input type="checkbox" name="main-nav" id="main-nav" class="burger-check">
+            <label for="main-nav" class="burger"><span></span></label>
+
+            <nav class="menu">
+                <ul class="listmenu">                                        
+                    <li><a class="switch" id="primero" style="visibility:visible; display:block;" href="javascript:toggleDarkMode()" onclick="visualiza_segundo()">MODO NOCTURNO</a></li>
+                    <li><a class="switch" id="segundo" style="visibility:hidden; display:none;" href="javascript:toggleDarkMode()" onclick="visualiza_primero()">MODO DIURNO</a></li><hr>
+                    
+                    <li><a href="favoritos.html">FAVORITOS</a></li><hr>
+                    
+                    <li><a href="misgifos.html">MIS GIFOS</a></li><hr>
+                    
+                    <li class="invisible"><a class="posiciondelmas" href="creargifo.html"><button class="btn1">+</button></a></li>                                         
+                </ul>                        
+            </nav>
+                     
+        </header>
+
+        <main>
+
+            <img src="../img/camara.svg" alt="camara con rollo" class="camara">
+            <img src="../img/element-luz-camara.svg" alt="luz verde" class="luzverde">
+            <img src="../img/pelicula.svg" alt="rollo" class="rollo">
+
+            <div class="cuadradoVioleta">
+
+                <div class="medioVerde1"></div>
+                <div class="medioVerde2"></div>
+                <div class="medioVerde3"></div>
+                <div class="medioVerde4"></div>
+
+                <!--Lo primero que aparce-->
+
+                <h1 class="h1crear" id="escondecrear1"> Aquí podrás<br> crear tus propios <span>GIFOS</span></h1>
+                <p class="p1crear" id="escondecrear2">¡Crea tu propio gifo en solo 3 pasos!</p>
+                <p class="p2crear" id="escondecrear3">(sólo necesitas una camara para grabar un video)</p>
+
+                <!--Lo segundo que aparece-->
+
+                <h2 class="h2creargif" id="2dopantallaso" style="display: none;">¿Nos das acceso a tu cámara?</h2>
+                <p class="p3creargif" id="3erpantallaso" style="display: none;">El acceso a tu cámara será valido solo <br> por el tiempo en el que estés grabando el GIFO.</p>
+
+                <!--video para grabar-->
+                <div class="videoDeCrear" id="videoDeGrabacion" style="position: relative; display: none;">
+
+                    <div id="violeta" class="gifsDeCrear" style="display: none;">
+
+                        <img id="loaderVerde" class="CLASSloaderVerde" src="../img/loader.svg" alt=""><!--imagenes arriba del texto-->
+                        <img id="tickVerde"  class="CLASStickVerde" src="../img/TickVerde.svg" alt="">
+
+                        
+                        <button class="buttonCrear1" id="button1crarGif" onclick="copiado(linkGifSubido)"><img src="../img/ganchito-violeta.svg" alt=""></button><!--el position tiene que ser absolute en los 2 botones-->
+                        <button class="buttonCrear2" id="button2crarGif" onclick="download(linkGifSubido,'gifYaSub.gif')"><img src="../img/icon-download.svg" alt=""></button>
+
+
+                        <h5 id="H5DeCrear" class="crearh5" style="display: none;">Estamos subiendo tu GIFO</h5>
+                        <h6 id="H6DeCrear" class="crearh6" style="display: none;">GIFO subido con éxito</h6>
+
+                    </div>
+
+                    <video id="recording" class="videoDeCrear" style="display: none;"></video>
+                    
+                    <img src="../img/loader.svg" alt="cargandoElGif" id="cargandoGif" style="display: none;">
+
+                </div>
+               
+
+                
+
+            </div>
+
+            <!--contador de  tiempo de gif(max 5 seg)-->
+            <span class="countdown" id="countdown" style="display: none;">00:00:00</span>
+            <a class="repCaptura" id="repCaptura" onclick="cambiar2()" style="display: none;">REPETIR CAPTURA</a>
+            
+            
+            <div class="padre">
+                <button class="hijo" id="bot1">1</button>
+                <button class="hijo" id="bot2" >2</button>
+                <button class="hijo" id="bot3">3</button>
+            </div>
+            
+            <div class="rayaVioleta"></div>
+
+            
+
+            <button class="btn2" id="crearGifComenzar" onclick="cambiar()">COMENZAR</button>
+
+        
+            
+            <!--este es el ejemplo que funciona-->
+            <div class="contenedor" id="div1">
+                
+                <img id="uploadedGIF">
+                <button class="btn2" id="recordButton" onclick="updateClock(0);funciondelgrabado()" style="display: none;">Grabar</button>
+                <button class="btn2" id="detetnerButton" onclick="detenerGrabado();" style="display: none;">Detener</button>
+                <button class="btn2" id="SUBIRGIFO" onclick="suburGif()" style="display: none;">SUBIR GIFO</button>
+            </div>
+
+            
+        </main>
+
+        <footer>
+
+            <div class="divfooter">
+
+                <h4 class="fh4">© 2020 GIFOS All Rights Reserved.</h4>
+
+                
+                <div class="footert">
+                    <p class="footerp">Comparti en:</p>
+                    <div class="footeri">
+                        <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                    
+            </div>
+            
+        </footer>
+        <div class="barravioleta"></div>
+
+        <!-- scripts  -->
+        <script src='../JS/home.js'></script>
+        
+    </body>
+
+</html>
